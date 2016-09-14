@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -52,6 +54,9 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'skype' => 'max:255',
+            'avatar' => 'mimes:jpeg'
+
         ]);
     }
 
@@ -63,10 +68,17 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $file = Input::file('avatar');
+        Image::make($file->getRealPath())->resize('200','200')->save($file->getClientOriginalName());
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'skype' => $data['skype'],
+            'avatar' => $file->getClientOriginalName()
+
+
         ]);
     }
 }
