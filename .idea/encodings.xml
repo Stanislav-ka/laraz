@@ -2,7 +2,11 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/resources/views/post/create.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/post/list.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/post/show.blade.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/user/profile.blade.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/user/profileEdit.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/user/users.blade.php" charset="UTF-8" />
   </component>
 </project>

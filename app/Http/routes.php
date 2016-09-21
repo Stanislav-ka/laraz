@@ -29,6 +29,28 @@ Route::get('user/{id}/edit',[
     'uses' => 'UserController@showEditProfile'
 ]);
 
+Route::get('users',[
+    'middleware' => 'auth',
+    'uses' => 'UserController@ListUsers'
+]);
+
+Route::get('posts',[
+    'middleware' => 'auth',
+    'uses' => 'PostController@index'
+]);
+
+Route::get('post/{id}',[
+    'middleware' => 'auth',
+    'uses' => 'PostController@show'
+]);
+
+Route::get('posts/new',[
+    'middleware' => 'auth',
+    'uses' => 'PostController@create'
+]);
+
+Route::post('posts/add','PostController@store');
+
 Route::post('user/{id}/save',[
     'middleware' => 'auth',
     'uses' => 'UserController@update'

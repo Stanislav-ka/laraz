@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Edit</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST"enctype="multipart/form-data" action="{{ url('/user/' . $user['id'] . '/save') }}">
+                        <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('/user/' . $user['id'] . '/save') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -15,7 +15,6 @@
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control" name="name" value="{{ $user['name'] }}">
-
                                     @if ($errors->has('name'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>

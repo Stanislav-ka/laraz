@@ -107,6 +107,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    @if (Auth::user())
+                        <li><a href="{{ url('/users') }}">Users</a></li>
+                        <li><a href="{{ url('/posts') }}">Posts</a> @if(Request::is('posts')) <a href="{{ url('/posts/new') }}">Add</a>  @endif</li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
